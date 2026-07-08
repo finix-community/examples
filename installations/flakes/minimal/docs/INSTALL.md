@@ -10,10 +10,10 @@ NixOS" section.
 
 After you've partitioned your drives, mounted them, and generated a basic
 configuration for NixOS, go into `/mnt/etc` (or really anywhere on the mounted
-drive) and clone this repository with
+drive) and copy the needed files from this repository with
 
 ```bash
-git clone https://codeberg.org/vitrial/finix-config <path>
+nix flake init -t github:finix-community/examples#installation-minimal
 ```
 
 where `<path>` is your desired file directory name, can leave blank for the

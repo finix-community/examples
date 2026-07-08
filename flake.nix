@@ -38,14 +38,14 @@
         description = ''
           A sanely minimal config for finix (with graphics)
         '';
-        path = ./installations/flakes/minimal;
+        path = ./installations/flakes/graphical;
       };
       installation-channels = mkWelcomeText {
         name = "Minimal Installation Template";
         description = ''
           A sanely minimal config for finix using channels
         '';
-        path = ./installations/flakes/minimal;
+        path = ./installations/channels;
       };
     };
 }
