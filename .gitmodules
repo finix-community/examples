@@ -1,9 +1,0 @@
-[submodule "installations/flakes/minimal"]
-	path = installations/flakes/minimal
-	url = ssh://git@github.com/xZecora/finix-minimal.git
-[submodule "installations/flakes/graphical"]
-	path = installations/flakes/graphical
-	url = ssh://git@github.com/xZecora/finix-graphical.git
-[submodule "installations/channels"]
-	path = installations/channels
-	url = ssh://git@github.com/xZecora/finix-channels.git
