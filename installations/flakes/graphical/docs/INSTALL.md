@@ -10,10 +10,11 @@ NixOS" section.
 
 After you've partitioned your drives, mounted them, and generated a basic
 configuration for NixOS, go into `/mnt/etc` (or really anywhere on the mounted
-drive) and copy the needed files from this repository with
+drive) and make and enter a directory, typically called `finix`, then copy the
+needed files from this repository with
 
 ```bash
-nix flake init -t github:finix-community/examples#installation-graphical
+nix --enable-experimental-features 'nix-command flakes' flake init -t github:finix-community/examples#installation-graphical
 ```
 
 where `<path>` is your desired file directory name, can leave blank for the
