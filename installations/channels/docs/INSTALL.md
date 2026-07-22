@@ -47,7 +47,7 @@ After saving your file, we will copy the needed files from this repository onto
 the system and into the directory `/mnt/etc/finix` with the following command:
 
 ```bash
-nix flake init -t github:finix-community/examples#installation-channels
+nix --enable-experimental-features 'nix-command flakes' flake init -t github:finix-community/examples#installation-channels
 ```
 
 After cloning, run the command
