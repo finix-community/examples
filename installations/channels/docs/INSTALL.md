@@ -39,9 +39,9 @@ hardware.firmware = [ pkgs.linux-firmware ];
 to make sure you have the firmware you need.
 
 You can look at an example of what this file _might_ look like
-[here](https://codeberg.org/vitrial/finix-config/src/branch/main/finix/hardware-configuration.nix).
-Do _NOT_ copy this file directly, it might work but I can make no guarantees as
-to long term system stability.
+[here](../../flakes/minimal/finix/hardware-configuration.nix). Do _NOT_ copy
+this file directly, it might work but I can make no guarantees as to long term
+system stability.
 
 After saving your file, we will copy the needed files from this repository onto
 the system and into the directory `/mnt/etc/finix` with the following command:

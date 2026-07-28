@@ -1,16 +1,21 @@
 # `finix` Channel Configuration
 
-This is a minimal setup for getting finix installed using channels from a NixOS live USB.
+This is a minimal setup for getting finix installed using channels from a NixOS
+live USB.
 
 # Installation Instructions
 
 Check the [docs](./docs/INSTALL.md)
 
-If you have any issues please make an issue or reach out to me in the [finix Discord server](https://discord.gg/KKgGN48UtV). Because I don't visit this repo as often, I would also recommend checking the [flake installation guide](https://codeberg.org/vitrial/finix-config) in case there is any news about general finix installation changes.
+If you have any issues please make an issue or reach out to me in the
+[finix Discord server](https://discord.gg/KKgGN48UtV). Because I don't visit
+this guide as often, I would also recommend checking the
+[flake installation guide](../flakes/) in case there is any news about general
+finix installation changes.
 
 # Helpful links
 
-[Flake Installation Guide](https://codeberg.org/vitrial/finix-config)
+[Flake Installation Guide](../flakes)
 
 [Finix Discord](https://discord.gg/KKgGN48UtV)
 
@@ -21,4 +26,3 @@ If you have any issues please make an issue or reach out to me in the [finix Dis
 [aanderse Config](https://github.com/aanderse/finix-config)
 
 [Finit](https://github.com/finit-project/finit)
-

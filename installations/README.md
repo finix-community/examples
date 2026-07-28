@@ -7,18 +7,17 @@ Overviews are given here but please read specifics in each directories readme.
 
 ### Flakes
 
-- [minimal](https://github.com/xZecora/finix-minimal): the minimal flake
-  contains everything needed to boot into a working TTY environment with a
-  network so you can expand the configuration as you wish.
-- [graphical](https://github.com/xZecora/finix-graphical): basically identical
-  to the `minimal` instructions but you get a graphical environment as well,
-  specifically `labwc` as a compositor and `foot` as a terminal.
+- [minimal](./flakes/minimal): the minimal flake contains everything needed to
+  boot into a working TTY environment with a network so you can expand the
+  configuration as you wish.
+- [graphical](./flakes/graphical): basically identical to the `minimal`
+  instructions but you get a graphical environment as well, specifically `labwc`
+  as a compositor and `foot` as a terminal.
 
 ### Channels
 
-- [channels](https://github.com/xZecora/finix-channels): equivalent to the
-  `minimal` flake install except it uses nix channels instead of flakes for
-  version control.
+- [channels](./channels): equivalent to the `minimal` flake install except it
+  uses nix channels instead of flakes for version control.
 
 ## General Notes
 
