@@ -56,7 +56,7 @@ Overviews are given here but please read specifics in each directories readme.
 
 # Helpful links
 
-[Finix Discord](https://discord.gg/KKgGN48UtV)
+[Finix Discord](https://discord.gg/nVe5Zkaypg)
 
 [Finix](https://github.com/finix-community/finix)
 
