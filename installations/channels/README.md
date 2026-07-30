@@ -8,7 +8,7 @@ live USB.
 Check the [docs](./docs/INSTALL.md)
 
 If you have any issues please make an issue or reach out to me in the
-[finix Discord server](https://discord.gg/KKgGN48UtV). Because I don't visit
+[finix Discord server](https://discord.gg/nVe5Zkaypg). Because I don't visit
 this guide as often, I would also recommend checking the
 [flake installation guide](../flakes/) in case there is any news about general
 finix installation changes.
