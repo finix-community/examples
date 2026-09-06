@@ -14,10 +14,12 @@
       enable = true;
       alsa.enable = true;
     };
+
     wireplumber.enable = true;
   };
 
-  hjem.users.<user>.dinit.services = {
+  # TODO: Replace with your username.
+  hjem.users."<USERNAME>".dinit.services = {
     pipewire = {
       type = "process";
       command = "${lib.getExe' config.programs.pipewire.package "pipewire"}";

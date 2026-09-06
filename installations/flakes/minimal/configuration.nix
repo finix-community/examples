@@ -4,6 +4,7 @@
   pkgs,
   ...
 }:
+
 {
   imports = with modules; [
     # WARN: Check out the comments in this file too.
@@ -28,6 +29,20 @@
 
   finit.runlevel = 3;
 
+  services.nix-daemon = {
+    enable = true;
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
+    };
+  };
+
   boot.loader.efi.canTouchEfiVariables = true;
 
   programs = {
@@ -41,21 +56,11 @@
     bash.enable = true;
   };
 
-  security.pam.environment = {
-    NIX_PATH.default = "/root/.nix-defexpr/channels:nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels";
-  };
-
   services = {
-    nix-daemon = {
-      enable = true;
-      settings = {
-        trusted-users = [
-          "root"
-          "@wheel"
-        ];
-      };
-    };
+    polkit.enable = true;
 
+    # NOTE: If you enabled ly then also enable this, syslogd being ready is one
+    # of its service conditions.
     sysklogd.enable = true;
 
     dbus.enable = true;
@@ -65,6 +70,7 @@
     # WARN: Are you sure you don't want to enable this? You'll have to configure
     # stuff like DNS manually to be able to access the internet.
     dhcpcd.enable = true;
+
     iwd.enable = true;
   };
 
@@ -82,8 +88,11 @@
     # WARN: Don't forget to set a hashed password here or you'll face the consequences
     # of your actions.
     password = "<HASHED_PASSWORD>";
+    packages = with pkgs; [ ];
   };
 
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
     wget

@@ -1,10 +1,12 @@
 let
   finix = import <finix>;
+  pkgs = import <nixpkgs> { };
 in
 finix.lib.finixSystem {
-  lib = import <nixpkgs/lib>;
+  inherit (pkgs) lib;
 
   modules = [
+    { nixpkgs.pkgs = pkgs; }
     ./configuration.nix
-  ] ++ builtins.attrValues finix.nixosModules;
+  ];
 }

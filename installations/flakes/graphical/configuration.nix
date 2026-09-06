@@ -1,9 +1,11 @@
 {
   config,
   modules,
+  lib,
   pkgs,
   ...
 }:
+
 {
   imports = with modules; [
     # WARN: Check out the comments in this file too.
@@ -21,6 +23,8 @@
     bash
     dhcpcd
     iwd
+    labwc
+    greetd
   ];
 
   # Use latest kernel.
@@ -39,16 +43,19 @@
     sudo.enable = true;
 
     bash.enable = true;
-  };
 
-  security.pam.environment = {
-    NIX_PATH.default = "/root/.nix-defexpr/channels:nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels";
+    # TODO: Pick a DE/WC.
+    labwc.enable = true;
   };
 
   services = {
     nix-daemon = {
       enable = true;
       settings = {
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
         trusted-users = [
           "root"
           "@wheel"
@@ -56,6 +63,10 @@
       };
     };
 
+    polkit.enable = true;
+
+    # NOTE: If you enabled ly then also enable this, syslogd being ready is one
+    # of its service conditions.
     sysklogd.enable = true;
 
     dbus.enable = true;
@@ -66,6 +77,26 @@
     # stuff like DNS manually to be able to access the internet.
     dhcpcd.enable = true;
     iwd.enable = true;
+
+    # WARN: You need a seat.
+    seatd.enable = true;
+
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${lib.getExe pkgs.tuigreet}";
+        };
+      };
+    };
+  };
+
+  fonts = {
+    fontconfig.enable = true;
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      nerd-fonts.fira-code
+    ];
   };
 
   # TODO: Define hostname.
@@ -78,18 +109,30 @@
   # $ mkpasswd --method=yescrypt
   users.users."<USERNAME>" = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "video"
+      "input"
+      config.services.seatd.group
+    ];
     # WARN: Don't forget to set a hashed password here or you'll face the consequences
     # of your actions.
     password = "<HASHED_PASSWORD>";
+    packages = with pkgs; [ ];
   };
 
+  hardware.graphics.enable = true;
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
     wget
     git
     iputils
     iproute2
+    # TODO: Pick a wayland terminal.
+    foot
     # NOTE: You can get rid of this if you use nh but be aware you need either of
     # them to rebuild your system...
     nixos-rebuild-ng

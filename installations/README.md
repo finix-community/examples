@@ -1,7 +1,8 @@
 # Installation Instructions
 
 This directory contains instructions for how to install `finix` in various ways.
-Overviews are given here but please read specifics in each directories readme.
+Overviews are given here but please read specifics in each directories readme, also
+check for comments annotated with `WARN`, `TODO`, `NOTE`.
 
 ## Options
 
@@ -17,7 +18,7 @@ Overviews are given here but please read specifics in each directories readme.
 ### Channels
 
 - [channels](./channels): equivalent to the `minimal` flake install except it
-  uses nix channels instead of flakes for version control.
+  uses nix channels instead of flakes.
 
 ## General Notes
 
@@ -33,17 +34,6 @@ Overviews are given here but please read specifics in each directories readme.
 - I try not to inject any opinions into this configuration. The only choice I
   have made is between `mdevd` and `udev`. I chose `mdevd` simply because that
   is what the other members of the finix community suggested and use.
-
-- Because of issues with `mdevd`, drives must be identified by their ID, eg
-  `/dev/sda1`. This causes multi-drive systems to be basically unusable. If you
-  want to try this out, just replace `programs.mdevd.enable` with
-  `programs.udev.enable` and add the `udev` module.
-
-  - Update on `mdevd`: [@deathbymanatee](https://github.com/deathbymanatee)
-    found a mostly working workaround
-    [here](https://github.com/finix-community/finix/issues/67) for the `mdevd`
-    drive mounting issue. It's not perfect but it does fix the issue while we
-    wait on a better fix.
 
 - Some users get errors from `efibootmgr` after running `nixos-install`. If the
   error code is 8, this can be ignored. It's caused by non-existant boot options
@@ -62,6 +52,6 @@ Overviews are given here but please read specifics in each directories readme.
 
 [Finix Options Wiki](https://finix-community.github.io/finix/options.html)
 
-[aanderse Config](https://github.com/aanderse/finix-config)
+[aanderse's Config](https://github.com/aanderse/finix-config)
 
 [Finit](https://github.com/finit-project/finit)
