@@ -1,8 +1,63 @@
 # Installation Instructions
 
-This directory contains instructions for how to install `finix` in various ways.
-Overviews are given here but please read specifics in each directories readme, also
-check for comments annotated with `WARN`, `TODO`, `NOTE`.
+This directory contains instructions for installing Finix. Finix currently uses
+the standard NixOS installation environment and installation tools.
+
+Check for comments annotated with `WARN`, `TODO`, `NOTE`.
+
+## Installation
+
+### 1. Boot a NixOS ISO
+
+Boot into a NixOS ISO. Any NixOS ISO will work, although there is little reason
+to use the graphical ISO unless you want a graphical environment while installing.
+
+A Finix installation ISO does not exist yet, so a NixOS ISO is required for now.
+
+### 2. Partition and mount your disk
+
+Partition your disk and mount the filesystems under `/mnt`, following the standard NixOS installation procedure.
+
+See the [NixOS installation manual](https://nixos.org/manual/nixos/stable/#sec-installation) for details.
+
+### 3. Choose a Finix configuration
+
+Clone this repository or initialize one of the templates provided here.
+
+You can modify the template to suit your needs.
+
+### 4. Generate the hardware configuration
+
+Run the standard NixOS hardware configuration generator as root:
+
+```sh
+nixos-generate-config --root /mnt
+```
+
+This generates the hardware-specific configuration under `/mnt/etc/nixos/`
+
+Review the generated configuration and modify it according to the comments in the
+Finix examples.
+
+### 5. Install the Finix configuration
+
+Copy or adapt the selected Finix template into your system configuration and make
+sure it includes the generated `hardware-configuration.nix`.
+
+At this point, your configuration under `/mnt/etc/nixos/` should contain the Finix
+system configuration together with the hardware configuration generated in the previous step.
+
+Make any other configuration changes you need before proceeding with the installation.
+
+### 6. Install the system
+
+Finally, run the standard NixOS installer as root:
+
+```sh
+nixos-install
+```
+
+After installation, reboot into the newly installed system.
 
 ## Options
 
@@ -11,6 +66,7 @@ check for comments annotated with `WARN`, `TODO`, `NOTE`.
 - [minimal](./flakes/minimal): the minimal flake contains everything needed to
   boot into a working TTY environment with a network so you can expand the
   configuration as you wish.
+
 - [graphical](./flakes/graphical): basically identical to the `minimal`
   instructions but you get a graphical environment as well, specifically `labwc`
   as a compositor and `foot` as a terminal.

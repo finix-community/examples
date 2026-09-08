@@ -15,8 +15,8 @@
     limine
     sudo
     polkit
-    # WARN: Either import this or import and enable ly's module, if you don't
-    # you will be left with an unbootable generation.
+    # WARN: Either import and enable this or any login manager, if you don't you
+    # will be left with an unbootable generation.
     getty
     bash
     dhcpcd
