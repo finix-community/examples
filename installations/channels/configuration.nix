@@ -66,6 +66,9 @@
     # stuff like DNS manually to be able to access the internet.
     dhcpcd.enable = true;
     iwd.enable = true;
+
+    # WARN: getty is not enabled by default.
+    getty.enable = true;
   };
 
   # TODO: Define hostname.
