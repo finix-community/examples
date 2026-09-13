@@ -23,12 +23,12 @@
   # TODO: Replace this with your actual filesystem layout.
   fileSystems = {
     "/" = {
-      device = "/dev/sda2";
+      device = "/dev/disk/by-uuid/...";
       fsType = "ext4";
     };
 
     "/boot" = {
-      device = "/dev/sda1";
+      device = "/dev/disk/by-uuid/...";
       fsType = "vfat";
       options = [
         "fmask=0077"

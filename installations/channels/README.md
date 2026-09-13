@@ -36,8 +36,6 @@ Next, run
 Then open this file in your preferred editor, delete the `imports = [ ... ];`
 section at the beginning, keeping all of the `boot` options for kernel modules,
 and removing every option below the `fileSystems` and `swapDevices` options.
-Lastly, change each `device = "/dev/disk/by-uuid/..."` option to the
-corresponding `device = "/dev/sdXy"` option.
 
 While you're in `hardware-configuration.nix`, I wouldn't hestitate to add the
 line
