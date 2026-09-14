@@ -79,6 +79,9 @@
     # WARN: You need a seat.
     seatd.enable = true;
 
+    # WARN: getty is not enabled by default.
+    getty.enable = true;
+
     greetd = {
       enable = true;
       settings = {
